@@ -69,6 +69,4 @@ public class Page {
     public synchronized LoginPage loginPage() {
         return createPage("loginPage", LoginPage.class);
     }
-
-
 }

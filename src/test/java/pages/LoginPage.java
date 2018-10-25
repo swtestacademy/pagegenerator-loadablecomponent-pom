@@ -45,7 +45,7 @@ public class LoginPage extends LoadableComponent<LoginPage> {
     }
 
     //*********Page Methods*********
-    public void loginToN11 (String username, String password){
+    public LoginPage WhenILoginToN11(String username, String password){
         //Enter Username(Email)
         basePage.writeText(usernameBy,username);
         //Enter Password
@@ -53,17 +53,20 @@ public class LoginPage extends LoadableComponent<LoginPage> {
         //Click Login Button
         basePage.click(usernameBy); //In order to click right, this line needed. Site related.
         basePage.click(loginButtonBy);
+        return this;
     }
 
     //Verify Username Condition
-    public void verifyLoginUserName (String expectedText) {
+    public LoginPage ThenIVerifyLoginUserName(String expectedText) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessageUsernameBy));
         Assert.assertEquals(basePage.readText(errorMessageUsernameBy), expectedText);
+        return this;
     }
 
     //Verify Password Condition
-    public void verifyLoginPassword (String expectedText) {
+    public LoginPage ThenIVerifyLoginPassword(String expectedText) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessagePasswordBy));
         Assert.assertEquals(basePage.readText(errorMessagePasswordBy), expectedText);
+        return this;
     }
 }
